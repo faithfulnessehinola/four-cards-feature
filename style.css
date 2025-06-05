@@ -12,6 +12,7 @@ body{
     margin-top: 3rem;
     font-family: 'Poppins';
     color:  hsl(234, 12%, 34%);
+    overflow-x: hidden;
 }
 
 header{
@@ -19,10 +20,11 @@ header{
 }
 
 .mainsection{
-    margin: auto;
-    width: 20rem;
-    height: auto;
-    min-width: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .firstheading{
@@ -35,28 +37,24 @@ h1, h2{
 }
 
 .firstdiv{
-    width: 20rem;
-    min-width: 100%;
     background-color: white;
     height: 15rem;
     padding: 2rem;
     border-radius: 10px;
-     border-top: 4px solid hsl(180, 62%, 55%);
+     border-top: solid hsl(180, 62%, 55%);
     box-shadow: 4px 2px 10px rgba(0, 0, 0, 0.1);
 
 }
 
 .firstdivimg{
     display: flex;
-    justify-content: end !important;
+    justify-content: end;
     align-items: end;
     margin-top: 2.5rem;
    
 }
 
 .seconddiv{
-    width: 20rem;
-   min-width: 100%;
     background-color: white;
     height: 15rem;
     padding: 2rem;
@@ -68,14 +66,12 @@ h1, h2{
 
 .seconddivimg{
     display: flex;
-    justify-content: end !important;
+    justify-content: end;
     align-items: end;
     margin-top: 2rem;
 }
 
 .thirddiv{
-    width: 20rem;
-   min-width: 100%;
     background-color: white;
     height: 15rem;
     padding: 2rem;
@@ -86,14 +82,13 @@ h1, h2{
 
 .thirddivimg{
     display: flex;
-    justify-content: end !important;
+    justify-content: end;
     align-items: end;
     margin-top: 2.5rem;
 }
 
 .fourthdiv{
-    width: 20rem;
-   min-width: 100%;
+   
     background-color: white;
     height: 15rem;
     padding: 2rem;
@@ -104,7 +99,7 @@ h1, h2{
 
 .fourthdivimg{
     display: flex;
-    justify-content: end !important;
+    justify-content: end;
     align-items: end;
     margin-top: 2.5rem;
 }
@@ -112,12 +107,34 @@ h1, h2{
 @media (min-width: 850px){
     .mainsection{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap:20px;
+        grid-template-columns: 1fr 1fr 1fr ;
+        grid-template-areas:
+        
+        ". firstdiv . "
+        "seconddiv firstdiv fourthdiv"
+        " . thirddiv ."
+        ;
+
+        gap:2rem;
         margin-top: 60px;
-        width: 20rem;
-        height: auto;
-        min-width: 80%;
+    }
+
+    .firstdiv{
+        grid-area: firstdiv;
+        margin-top: -7rem;
+    }
+
+    .seconddiv{
+        grid-area: seconddiv;
+    }
+
+    .thirddiv{
+        grid-area: thirddiv;
+        margin-top: -5rem;
+    }
+
+    .fourthdiv{
+        grid-area: fourthdiv;
     }
 
     header{
